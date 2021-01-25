@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace APIPractice
 {
-    public class Employee
+    public class Employee: EmployeeDto
     {
-        public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime CreatedAt = DateTime.Now;
+        //public int ID { get; set; }
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
+
+        //public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }

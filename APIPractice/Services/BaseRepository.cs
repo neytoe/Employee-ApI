@@ -1,5 +1,5 @@
-﻿using Internclap.Core.Interfaces;
-using Internclap.Infrastructure.Data;
+﻿using APIPractice.Model;
+using Internclap.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ namespace Internclap.Infrastructure.Services
 {
     public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
-        protected readonly DataContext _dataContext;
+        protected readonly EmployeeContext _dataContext;
         private readonly DbSet<T> entitySet;
-        public BaseRepository(DataContext dataContext)
+        public BaseRepository(EmployeeContext dataContext)
         {
             _dataContext = dataContext;
             entitySet = dataContext.Set<T>();

@@ -1,4 +1,7 @@
+using APIPractice.Interfaces;
 using APIPractice.Model;
+using APIPractice.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,12 +33,15 @@ namespace APIPractice
         {
 
             services.AddControllers();
+            
             services.AddDbContext<EmployeeContext>(opt =>
                     opt.UseSqlite("Data Source=sqlitedemo.db"));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIPractice", Version = "v1" });
             });
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
