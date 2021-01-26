@@ -41,5 +41,65 @@ namespace APIPractice.Controllers
 
             return Ok(employee);
         }
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EmployeeDto>> GetEmployee (int id)
+        {
+            
+            try
+            {
+                var findemployee =await _employeeRepository.Find(id);
+                if (findemployee == null) return NotFound(id);
+
+                var employee = _mapper.Map<EmployeeDto>(findemployee);
+                return Ok(employee);
+
+            }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError("Error", e.Message);
+            }
+
+
+            return NotFound(id);
+
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<EmployeeDto>> GetAllEmployees()
+        {
+            try
+            {
+                var employee = await _employeeRepository.FindAll();
+
+                return Ok(employee);
+            }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError("Error", e.Message);
+            }
+
+            return NotFound();
+            
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteEmployee (int id)
+        {
+              await _employeeRepository.Delete(id);
+
+            var findemployee = await _employeeRepository.Find(id);
+            if (findemployee == null)
+            {
+                return Ok("Employee Successfully deleted");
+            }
+
+            
+            return BadRequest("Error deleting employee");
+        }
+
     }
 }

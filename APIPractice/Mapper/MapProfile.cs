@@ -11,6 +11,7 @@ namespace APIPractice.Mapper
         public MapProfile()
         {
             CreateMap<EmployeeDto, Employee>();
+            CreateMap<Employee, EmployeeDto>();
         }
     }
 }
