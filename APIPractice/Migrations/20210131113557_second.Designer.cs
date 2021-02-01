@@ -3,14 +3,16 @@ using System;
 using APIPractice.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace APIPractice.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20210131113557_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,6 +35,9 @@ namespace APIPractice.Migrations
 
                     b.Property<int>("RoleId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Userrole")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 

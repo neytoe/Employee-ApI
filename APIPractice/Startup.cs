@@ -1,3 +1,4 @@
+using APIPractice.Data;
 using APIPractice.Interfaces;
 using APIPractice.Model;
 using APIPractice.Services;
@@ -41,11 +42,12 @@ namespace APIPractice
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIPractice", Version = "v1" });
             });
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,EmployeeContext ctx)
         {
             if (env.IsDevelopment())
             {
@@ -59,7 +61,7 @@ namespace APIPractice
             app.UseRouting();
 
             app.UseAuthorization();
-
+            Preseeder.Seeder(ctx).Wait();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

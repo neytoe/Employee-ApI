@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIPractice
+namespace APIPractice.Model
 {
     public class Employee: EmployeeDto
     {
-        //public int ID { get; set; }
-        //public string FirstName { get; set; }
-        //public string LastName { get; set; }
+        public int ID { get; set; }
+        public int RoleId { get; set; }
 
-        //public DateTime CreatedAt { get; set; } = DateTime.Now;
+      //  public Role Role { get; set; }
+
+       
     }
 }

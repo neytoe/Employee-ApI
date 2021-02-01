@@ -49,6 +49,7 @@ namespace Internclap.Infrastructure.Services
             if (t != null)
             {
                 entitySet.Add(t);
+              
                 await _dataContext.SaveChangesAsync();
             }
         }
@@ -56,7 +57,7 @@ namespace Internclap.Infrastructure.Services
         {
             if (t != null)
             {
-                _dataContext.Update(t);
+                _dataContext.Update<T>(t);
                 await _dataContext.SaveChangesAsync();
             }
         }

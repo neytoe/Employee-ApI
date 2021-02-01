@@ -1,4 +1,5 @@
 ﻿using APIPractice.Interfaces;
+using APIPractice.Model;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,18 +16,23 @@ namespace APIPractice.Controllers
     {
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IMapper _mapper;
+        public IRoleRepository _roleRepository { get; }
 
-        public EmployeeController(IEmployeeRepository employeeRepository, IMapper mapper)
+        public EmployeeController(IEmployeeRepository employeeRepository, IMapper mapper, IRoleRepository roleRepository)
         {
             _employeeRepository = employeeRepository;
             _mapper = mapper;
+            _roleRepository = roleRepository;
         }
 
 
        [HttpPost]
-       public async Task<ActionResult<EmployeeDto>> CreateEmployee (EmployeeDto employee)
+       public async Task<ActionResult<CreateEmployeeDto>> CreateEmployee (CreateEmployeeDto employee)
         {
             var newemployee = _mapper.Map<Employee>(employee);
+            var rolestring = employee.Userrole;
+            var roleid = await _roleRepository.search(rolestring);
+            newemployee.RoleId = roleid;
 
             try
             {
@@ -46,7 +52,6 @@ namespace APIPractice.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployeeDto>> GetEmployee (int id)
         {
-            
             try
             {
                 var findemployee =await _employeeRepository.Find(id);
@@ -58,11 +63,8 @@ namespace APIPractice.Controllers
             }
             catch (Exception e)
             {
-
                 ModelState.AddModelError("Error", e.Message);
             }
-
-
             return NotFound(id);
 
         }
@@ -99,6 +101,29 @@ namespace APIPractice.Controllers
 
             
             return BadRequest("Error deleting employee");
+        }
+
+        [HttpPatch]
+        public async Task<ActionResult<EmployeeDto>> UpdateEmployee(EmployeeDto employee)
+        {
+            Employee findemployeee = await _employeeRepository.Find(employee.ID);
+            
+
+            if (findemployeee == null) return BadRequest("invalid id");
+
+           
+            var emp = _mapper.Map<EmployeeDto,Employee>(employee, findemployeee);
+            try
+            {
+                await _employeeRepository.Update(emp);
+                var newemployee = _mapper.Map<EmployeeDto>(emp);
+                return Ok(newemployee);
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("Error", e.Message);
+            }
+            return BadRequest(employee);
         }
 
     }

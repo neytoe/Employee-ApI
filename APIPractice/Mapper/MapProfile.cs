@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using APIPractice.Model;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace APIPractice.Mapper
         public MapProfile()
         {
             CreateMap<EmployeeDto, Employee>();
+            CreateMap<CreateEmployeeDto, Employee>();
             CreateMap<Employee, EmployeeDto>();
         }
     }

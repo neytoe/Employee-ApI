@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CZmTRXpk1S+2oeTtJ0QI3WMuKbYMPDsi5Wvj5PFcskj/XbofbZUcF7yVM3IG4onoDTyxdogLKpHX/WHyQ3c6bQ==",
+  "dgSpecHash": "hqfZFGBQQThkRmlKj1MTBRriw5odQxY82WHcvam4gWahMoFfNWkz2A1gXhnHr5Th1jPX1qY9GoNBnYdeT3KU+A==",
   "success": true,
   "projectFilePath": "C:\\Users\\CHidimms\\source\\repos\\APIPractice\\APIPractice\\APIPractice.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,7 @@
     "C:\\Users\\CHidimms\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\CHidimms\\.nuget\\packages\\microsoft.net.http.headers\\2.0.0\\microsoft.net.http.headers.2.0.0.nupkg.sha512",
     "C:\\Users\\CHidimms\\.nuget\\packages\\microsoft.openapi\\1.1.1\\microsoft.openapi.1.1.1.nupkg.sha512",
+    "C:\\Users\\CHidimms\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
     "C:\\Users\\CHidimms\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
     "C:\\Users\\CHidimms\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\CHidimms\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",

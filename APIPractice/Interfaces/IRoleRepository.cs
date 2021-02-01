@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace APIPractice.Interfaces
 {
-    public interface IEmployeeRepository: IRepository<Employee>
+    public interface IRoleRepository: IRepository<Role>
     {
+        Task<int> search(string rolename);
     }
 }
