@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using APIPractice.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIPractice.Model
+namespace APIPractice.Data
 {
     public class EmployeeContext: DbContext
     {
@@ -14,7 +15,7 @@ namespace APIPractice.Model
            
         }
         
-        public DbSet<Employee>Employees { get; set; }
-        public DbSet<Role>Roles { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }

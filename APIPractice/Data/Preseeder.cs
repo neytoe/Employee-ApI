@@ -8,7 +8,7 @@ namespace APIPractice.Data
 {
     public static class Preseeder
     {
-        public async static Task Seeder(EmployeeContext ctx)
+        public static async Task Seeder(EmployeeContext ctx)
         {
             ctx.Database.EnsureCreated();
             if (!ctx.Roles.Any())

@@ -1,4 +1,5 @@
-﻿using APIPractice.Model;
+﻿using APIPractice.Data;
+using APIPractice.Model;
 using Internclap.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

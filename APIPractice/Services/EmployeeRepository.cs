@@ -1,4 +1,5 @@
-﻿using APIPractice.Interfaces;
+﻿using APIPractice.Data;
+using APIPractice.Interfaces;
 using APIPractice.Model;
 using Internclap.Core.Interfaces;
 using Internclap.Infrastructure.Services;
@@ -11,8 +12,6 @@ namespace APIPractice.Services
 {
     public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     {
-        
-
         public EmployeeRepository(EmployeeContext dataContext) : base(dataContext)
         {
            
